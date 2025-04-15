@@ -1,0 +1,50 @@
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #0d0c1d !important;
+  border-bottom: 2px solid #33ffff;
+  box-shadow: 0 0 10px #00ff99;
+}
+
+.navbar-brand {
+  color: #ff9933 !important;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-shadow: 0 0 8px #ff9933;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-link {
+  color: #dcdcdc !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #33ffff !important;
+  text-shadow: 0 0 5px #00ff99;
+}
+.logo-navbar {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 3px #ff9933);
+  background-image: url("../../../assets/logo-arcade.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.brand-text {
+  color: #ff9933;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-shadow: 0 0 6px #ff9933;
+}

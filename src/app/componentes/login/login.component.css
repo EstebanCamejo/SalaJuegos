@@ -1,0 +1,51 @@
+.gradient-custom {
+  background-image: url("../../../assets/logo-arcade.png"); /* imagen de fondo tipo mosaico */
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  background-position: top left;
+  background-color: #0d0c1d;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 👈 centrado vertical */
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+/* Tarjeta login compacta y centrada */
+.card {
+  background-color: rgba(46, 49, 76, 0.92) !important;
+  border: 2px solid #33ffff;
+  box-shadow: 0 0 15px #00ff99;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 360px;
+  width: 100%;
+}
+
+/* Contenido interno reducido */
+.card-body {
+  padding: 1.5rem !important;
+  font-size: 0.9rem;
+}
+
+/* Campos */
+.form-control {
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Botón arcade */
+.btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #00ff99;
+  color: #0d0c1d;
+  border-color: #00ff99;
+}

@@ -1,0 +1,55 @@
+<section class="fondo-home">
+  <h1 class="text-center text-white fw-bold mb-5">🎮 Seleccioná tu juego</h1>
+
+  <div class="card-container">
+
+    <!-- Juego 1: Ahorcado -->
+    <div class="card bg-dark text-white">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title text-uppercase">Ahorcado</h5>
+        <p class="card-text">Adiviná la palabra oculta, una letra a la vez.</p>
+        <div class="mt-auto">
+          <button class="btn btn-outline-light w-100 mb-2" (click)="irAJuego('ahorcado')">Jugar</button>
+          <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('ahorcado')">Mejores puntajes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Juego 2: Mayor o Menor -->
+    <div class="card bg-dark text-white">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title text-uppercase">Mayor o Menor</h5>
+        <p class="card-text">La próxima carta del mazo, ¿es mayor o menor que la que recién salió?</p>
+        <div class="mt-auto">
+          <button class="btn btn-outline-light w-100 mb-2" (click)="irAJuego('mayor-o-menor')">Jugar</button>
+          <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('mayor-o-menor')">Mejores puntajes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Juego 3: Preguntados -->
+    <div class="card bg-dark text-white">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title text-uppercase">Preguntados</h5>
+        <p class="card-text">¿Cuántos personajes de Rick & Morty conocés?</p>
+        <div class="mt-auto">
+          <button class="btn btn-outline-light w-100 mb-2" (click)="irAJuego('preguntados')">Jugar</button>
+          <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('preguntados')">Mejores puntajes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Juego 4: Juego a elección -->
+    <div class="card bg-dark text-white">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title text-uppercase">Juego a elección</h5>
+        <p class="card-text">Juego en proceso de creación.</p>
+        <div class="mt-auto">
+          <button class="btn btn-outline-light w-100 mb-2" disabled>Jugar</button>
+          <button class="btn btn-outline-secondary w-100" disabled>Mejores puntajes</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

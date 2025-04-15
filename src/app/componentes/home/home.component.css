@@ -1,0 +1,48 @@
+.fondo-home {
+  background-image: url("../../../assets/fondo-arcade-principal.png");
+  background-repeat: repeat;                 /* mosaico */
+  background-size: 200px 200px;              /* tamaño tipo tile retro */
+  background-position: top left;
+  background-color: #0d0c1d;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  flex-direction: column;
+}
+
+/* Contenedor general de las cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Estilo para las cards de juegos */
+.card {
+  background-color: rgba(46, 49, 76, 0.9);
+  border: 2px solid #33ffff;
+  box-shadow: 0 0 12px #00ff99;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;
+  border-radius: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 18px #00ff99;
+}
+
+.card-title {
+  color: #ff9933;
+  font-weight: bold;
+  text-shadow: 0 0 4px #ff9933;
+}
+
+.card-text {
+  color: #dcdcdc;
+}
