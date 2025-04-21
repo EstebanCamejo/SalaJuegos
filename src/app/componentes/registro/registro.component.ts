@@ -34,17 +34,26 @@ export class RegistroComponent implements OnInit {
   async registrar() {
     if (this.formulario.invalid) return;
 
-    const { correo, contrasena} = this.formulario.value;
-    
-    const resultado = await this.servicioAuth.registrarUsuario(correo, contrasena);
+    const {correo, contrasena} = this.formulario.value;    
 
-    if (resultado.error) {
+    this.mensajeError = 'Cargando...';
 
-      this.mensajeError = 'Error al registrar: ' + resultado.error.message;
-      
-    } else {
-      
+    try{
+
+      const {error} = await this.servicioAuth.registrarUsuario(correo, contrasena);
+
+      if (error) {        
+        if(error.message?.toLowerCase().includes('user already registered')) { 
+          this.mensajeError = 'Este correo ya esta registrado. Proba inciar sesion directamente.';
+        } else {
+          this.mensajeError = 'Ocurrio un error durante el registro. Intenta nuevamente.';
+        }
+        return;   
+      }
       this.router.navigate(['/home']);
+    }catch (error) {
+      this.mensajeError = "Error inesperado. Por favor intenta nuevamente mas tarde.";
+      console.error(error);
     }
   }
 }

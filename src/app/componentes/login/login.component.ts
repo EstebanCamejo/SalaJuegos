@@ -18,20 +18,24 @@ export class LoginComponent {
   correo: string = '';
   contrasena: string = '';
   mensajeError: string = '';
- 
 
   constructor(private servicioAuth: AuthService, private router: Router) {}
 
   async ingresar() {
-  //  const correo = this.formulario.value.correo;
-  //  const contrasena = this.formulario.value.contrasena;
+    
     const resultado = await this.servicioAuth.iniciarSesion(this.correo,this.contrasena);
 
     if (resultado.error) {
       this.mensajeError = 'Error al iniciar sesión: ' + resultado.error.message;
     } else {
-
       this.router.navigate(['/home']);
     }
   }
+  
+  loginRapido(correo: string, contrasena: string) {
+    this.correo = correo;
+    this.contrasena = contrasena;
+    this.ingresar();
+  }
+  
 }

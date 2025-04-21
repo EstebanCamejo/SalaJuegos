@@ -49,3 +49,13 @@
   color: #0d0c1d;
   border-color: #00ff99;
 }
+
+.btn-outline-info {
+  color: #00ffff;
+  border-color: #00ffff;
+}
+
+.btn-outline-info:hover {
+  background-color: #00ffff;
+  color: #0d0c1d;
+}

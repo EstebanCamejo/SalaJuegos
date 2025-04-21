@@ -32,10 +32,13 @@
                 <p class="text-white-50 mb-4">Por favor complete sus datos</p>
   
                 <!-- Alerta de error -->
-                <div *ngIf="mensajeError" class="alert alert-danger">
+                <div *ngIf="mensajeError" class="alert alert-danger text-center">
                   {{ mensajeError }}
                 </div>
-  
+                
+
+
+
                 <!-- Formulario -->
                 <form [formGroup]="formulario" (ngSubmit)="registrar()">
                   
