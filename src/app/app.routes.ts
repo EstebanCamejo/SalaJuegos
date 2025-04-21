@@ -3,7 +3,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { SobremiComponent } from './componentes/sobremi/sobremi.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
-import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { AuthGuard } from   './guards/auth.guards';
 
 
 export const routes: Routes = [
@@ -26,9 +26,9 @@ export const routes: Routes = [
     { path: '**', component: PageNotFoundComponent } */
 
     { path: '', redirectTo: 'login', pathMatch: 'full' }, // Redirecciona al login por defecto
-    { path: 'home', component: HomeComponent },
+    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, // Ruta protegida por el guard
     { path: 'login', component: LoginComponent },
     { path: 'registro', component: RegistroComponent },
-    { path: 'sobremi', component: SobremiComponent },
+    { path: 'sobremi', component: SobremiComponent, canActivate: [AuthGuard] }, // Ruta protegida por el guard
     { path: '**', redirectTo: 'login' } // Ruta comodín en caso de ruta no existente
 ];

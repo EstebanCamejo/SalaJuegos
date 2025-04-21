@@ -1,14 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, NgIf],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
-  constructor(private router: Router) {}
+export class HomeComponent implements OnInit{
+
+  correoUsuario: string | null = null;
+
+  constructor(private authService: AuthService ,private router: Router) {}
+
+  ngOnInit():void {
+    this.authService.usuarioActual.subscribe(
+      usuario => {
+        this.correoUsuario = usuario ?.email ?? null;
+      }
+    )
+  }
+
+  logOut() {
+    this.authService.logOut().then(() => {
+     
+      this.router.navigate(['/login']);
+    });
+  }
 
   // Redirige al juego seleccionado
   irAJuego(nombreJuego: string) {

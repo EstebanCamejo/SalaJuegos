@@ -1,4 +1,8 @@
 <section class="fondo-home">
+  <div *ngIf="correoUsuario" class="mb-4 text-white text-center">
+    <p class="fw-bold">👋 ¡Bienvenido! Sesión iniciada como: {{ correoUsuario }}</p>
+  </div>
+  
   <h1 class="text-center text-white fw-bold mb-5">🎮 Seleccioná tu juego</h1>
 
   <div class="card-container">

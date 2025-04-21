@@ -48,3 +48,8 @@ nav.navbar {
   font-size: 1.4rem;
   text-shadow: 0 0 6px #ff9933;
 }
+.text-white.fw-bold.ms-3 {
+  font-size: 1rem;
+  color: #00ff99 !important;
+  text-shadow: 0 0 4px #00ff99;
+}
