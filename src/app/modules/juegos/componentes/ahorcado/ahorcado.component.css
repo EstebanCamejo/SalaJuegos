@@ -1,0 +1,79 @@
+/* ahorcado.component.css */
+.ahorcado-container {
+    background-image: url('../../../../../assets/fondo-ahorcado.jpg');
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    background-color: #0d0c1d;
+    min-height: 100vh;
+    color: #ff9933;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+  }
+  
+  h1 {
+    text-shadow: 0 0 8px #ff9933;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .palabra {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #b94213;
+  }
+  
+  .botones-letras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .botones-letras button {
+    background-color: #343b55;
+    border: 2px solid #33ffff;
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    font-family: monospace;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .botones-letras button:hover {
+    background-color: #00ff99;
+    color: #0d0c1d;
+    border-color: #00ff99;
+  }
+  
+  .errores {
+    color: #d67c1c;
+    font-weight: bold;
+    margin-top: 5rem;
+  }
+  
+  .reiniciar {
+    margin-top: 1rem;
+    background-color: #343b55;
+    border: 2px solid #ff9933;
+    color: #ff9933;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .reiniciar:hover {
+    background-color: #ff9933;
+    color: #0d0c1d;
+    border-color: #ff9933;
+  }
+  
+  .imagen-ahorcado {
+    max-width: 200px;
+    margin-bottom: 1rem;
+  }
+  

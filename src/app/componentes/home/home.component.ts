@@ -33,11 +33,11 @@ export class HomeComponent implements OnInit{
 
   // Redirige al juego seleccionado
   irAJuego(nombreJuego: string) {
-    this.router.navigate(['/juego', nombreJuego]);
+    this.router.navigate(['/juegos', nombreJuego]);
   }
 
   // Redirige a la sección de puntajes del juego
   verPuntajes(nombreJuego: string) {
-    this.router.navigate(['/puntajes', nombreJuego]);
+    alert(`Próximamente puntajes de ${nombreJuego}`);
   }
 }

@@ -1,0 +1,36 @@
+<!-- ahorcado.component.html -->
+<div class="ahorcado-container">
+    <br>
+    <br>
+    <h1>Juego del Ahorcado</h1>
+    
+    <br>
+    <img [src]="getImagenAhorcado()" alt="Ahorcado" class="imagen-ahorcado">
+    <br>
+
+    <p class="palabra">
+      <span *ngFor="let letra of palabraMostrada">{{ letra }}</span>
+    </p>
+    
+    <div class="botones-letras">
+      <button *ngFor="let letra of alfabeto" (click)="arriesgarLetra(letra)">
+        {{ letra }}
+      </button>
+    </div>
+  
+    <p class="errores">Errores: {{ errores }} / {{ maxErrores }}</p>
+  
+    <button class="reiniciar" (click)="reiniciarJuego()">Reiniciar juego</button>
+
+
+    <div class="puntajes">
+      <h3 class="text-warning">Últimos puntajes</h3>
+      <ul class="text-white">
+        <li *ngFor="let p of puntajes">
+          {{ p.email }} - {{ p.puntaje }} puntos ({{ p.resultado }})
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+  

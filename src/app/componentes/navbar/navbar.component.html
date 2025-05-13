@@ -34,6 +34,10 @@
           <li class="nav-item" *ngIf="usuarioLogueado">
             <a class="nav-link" routerLink="/sobremi" routerLinkActive="active">Sobre mí</a>
           </li>
+
+          <li class="nav-item" *ngIf="usuarioLogueado">
+            <a class="nav-link" routerLink="/chat" routerLinkActive="active">Chat</a>
+          </li>
           
           <li class="nav-item" *ngIf="usuarioLogueado">
             <a class="nav-link" (click)="logout()">Cerrar sesión</a>
@@ -42,5 +46,6 @@
         </ul>
       </div>
     </div>
+
   </nav>
   

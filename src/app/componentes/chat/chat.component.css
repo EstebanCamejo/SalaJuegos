@@ -1,0 +1,42 @@
+/* chat.component.css */
+.fondo-chat {
+  background-image: url("../../../assets/arcade-fondo-chat.jpg");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-container {
+  background-color: rgba(46, 49, 76, 0.95);
+  border: 2px solid #33ffff;
+  box-shadow: 0 0 15px #00ff99;
+  border-radius: 1rem;
+  width: 400px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-mensajes {
+  background-color: #1a1a2e;
+  border: 1px solid #33ffff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.mensaje {
+  margin-bottom: 0.5rem;
+}
+
+input.form-control {
+  flex: 1;
+}
+
+button.btn {
+  white-space: nowrap;
+}

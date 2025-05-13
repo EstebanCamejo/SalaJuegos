@@ -1,0 +1,70 @@
+<div class="mayor-menor-container">
+  <h1 class="titulo">Juego Mayor o Menor</h1>
+
+  <div class="text-puntaje">Puntaje actual: {{ puntaje }}</div>
+
+  <div class="zona-juego">
+<!--     
+    <div class="cartas">
+      <div class="carta">
+        <p>Carta actual</p>
+        <img [src]="cartaActual?.image" alt="Carta actual" />
+      </div>
+    </div>
+    <div class="cartas" *ngIf="cartaSiguiente && finalizado">
+      <div class="carta">
+        <p>Carta que te hizo perder</p>
+        <img [src]="cartaSiguiente.image" alt="Carta siguiente" />
+      </div>
+    </div>
+     -->
+     <div class="cartas" *ngIf="cartaActual">
+      <div class="carta">
+        <p>Carta actual</p>
+        <img [src]="cartaActual.image" alt="Carta actual" />
+      </div>
+<!--     
+      <div class="carta" *ngIf="cartaSiguiente && finalizado">
+        <p>Carta que te hizo perder</p>
+        <img [src]="cartaSiguiente.image" alt="Carta siguiente" />
+      </div> -->
+
+      <div class="carta" *ngIf="cartaSiguiente && finalizado">
+        <p *ngIf="mensaje.includes('Ganaste')">Carta final</p>
+        <p *ngIf="mensaje.includes('Fallaste')">Carta que te hizo perder</p>
+        <img [src]="cartaSiguiente.image" alt="Carta final o de fallo" />
+      </div>
+      
+    </div>
+    
+    <div class="botones" *ngIf="!finalizado">
+      <button (click)="suponer('mayor')">Mayor 🔼</button>
+      <button (click)="suponer('igual')">Igual ➖</button>
+      <button (click)="suponer('menor')">Menor 🔽</button>
+    </div>
+
+    <div class="resultado" *ngIf="mensaje">
+      <p [ngClass]="{ 'text-success': esCorrecto, 'text-danger': !esCorrecto }">{{ mensaje }}</p>
+    </div>
+
+    <div *ngIf="finalizado" class="resultado">
+      <p class="text-white">Juego terminado</p>
+      <p class="text-puntaje">Tu puntaje: {{ puntaje }}</p>
+      <button (click)="inicializarJuego()">Jugar de nuevo</button>
+    </div>
+  </div>
+
+  <div>
+    <h4>🎯 Reglas del juego</h4>
+    <p>
+      ✅ Cada acierto suma 1 punto.
+      <br>
+      ❌ Cada fallo termina la partida inmediatamente.
+      <br>
+      💀 Al fallar, se muestra la carta que causó el error.
+      <br>
+      🏆 Al llegar a 5 puntos, el jugador gana.
+    </p>
+  </div>
+
+</div>

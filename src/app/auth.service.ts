@@ -65,6 +65,10 @@ export class AuthService {
     getUsuarioActual() {
        return this.supabase.auth.getUser();
     }
+    getUsuarioActualValue() {
+      return this.usuarioActual.getValue();
+    }
+    
     
         
 }
