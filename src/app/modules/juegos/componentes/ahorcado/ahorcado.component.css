@@ -1,17 +1,21 @@
-/* ahorcado.component.css */
-.ahorcado-container {
-    background-image: url('../../../../../assets/fondo-ahorcado.jpg');
+
+  .ahorcado-container {
+    background-image: url('../../../../../assets/fondoahorcado2.jpg');
     background-repeat: repeat;
     background-size: 180px 180px;
     background-color: #0d0c1d;
+    height: auto;
     min-height: 100vh;
-    color: #ff9933;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding: 2rem;
+    justify-content: space-between; /* 🔁 distribuye mejor */
+    padding: 1rem;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
   }
+  
   
   h1 {
     text-shadow: 0 0 8px #ff9933;
@@ -22,8 +26,8 @@
   .palabra {
     font-size: 2rem;
     letter-spacing: 0.5rem;
-    margin-bottom: 1.5rem;
-    color: #b94213;
+    margin-bottom: 1.5rem;    
+    color: #33ffff;
   }
   
   .botones-letras {
@@ -39,7 +43,6 @@
     border: 2px solid #33ffff;
     color: #fff;
     padding: 0.5rem 0.75rem;
-    font-family: monospace;
     cursor: pointer;
     transition: all 0.3s ease;
   }
@@ -72,8 +75,228 @@
     border-color: #ff9933;
   }
   
+
   .imagen-ahorcado {
-    max-width: 200px;
+    width: 120px; /* 🔽 más chica aún */
+    height: auto;
     margin-bottom: 1rem;
+    filter: drop-shadow(0 0 5px #00ffff);
   }
   
+  .letra-usada {
+    background-color: #555;
+    color: #888;
+    border-color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  .bloque-puntaje {
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin: 10px auto;
+    color: #00ffff;
+    font-weight: bold;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 12px #00ffff;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+  }
+  .mensaje-recuadro {
+  border: 2px solid #00f7ff;
+  padding: 1rem;
+  border-radius: 12px;
+  margin: 20px auto;
+  color: #00f7ff;
+  font-weight: bold;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 15px #00f7ff;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.btn-arcade {
+  background-color: transparent;
+  color: #00f7ff;
+  border: 2px solid #00f7ff;
+  border-radius: 10px;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+}
+
+.btn-arcade:hover {
+  background-color: #00f7ff;
+  color: #000;
+  box-shadow: 0 0 15px #00f7ff, 0 0 25px #00f7ff;
+  transform: scale(1.05);
+}
+
+.letra-usada {
+  background-color: #444;
+  color: #888;
+  border: 2px solid #666;
+  box-shadow: none;
+  cursor: not-allowed;
+  text-shadow: none;
+  transition: background-color 0.3s ease;
+}
+
+.botones-letras button.letra-usada:hover {
+  background-color: #444;
+  color: #888;
+  border-color: #666;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.titulo-ahorcado,
+.titulo-puntajes {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 1.8rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: inline-block;
+  backdrop-filter: blur(4px);
+}
+.puntajes ul {
+  padding: 0;
+  list-style: none;
+}
+.fondo-ganador {
+  background-color: #002f1d;
+  background-image: radial-gradient(circle, #00ff99 0%, #005c49 100%);
+}
+
+.fondo-perdedor {
+  background-color: #3a0000;
+  background-image: radial-gradient(circle, #ff0033 0%, #1a0000 100%);
+}
+
+.zona-principal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.lado-izquierdo,
+.lado-derecho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.puntajes {
+  margin: 1.5rem auto;
+  max-width: 500px;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.3);
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #00ffff66;
+  text-align: left;
+}
+
+.puntajes li {
+  margin: 0.3rem 0;
+  color: #ffffff;
+  font-size: 0.95rem;
+  padding-left: 0.5rem;
+  border-left: 3px solid #00ffff;
+}
+
+.puntaje-actual {
+  color: #00ffcc;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: 2px solid #00ffcc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  text-align: center;
+  box-shadow: 0 0 10px #00ffcc;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.reglas-juego {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.5);
+  border-top: 2px solid #00ffff;
+  color: #00ffff;
+  font-size: 0.95rem;
+  text-align: center;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 10px #00ffff88;
+}
+.alerta-exito {
+  color: #00ff99;
+  background: rgba(0,0,0,0.65);
+  border: 2px solid #00ff99;
+  border-radius: 8px;
+  padding: 7px 12px;
+  margin: 14px auto;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 1em;
+  max-width: 360px;
+  box-shadow: 0 0 10px #00ff99;
+  text-align: center;
+}
+
+.alerta-error {
+  color: #ff3399;
+  background: rgba(0,0,0,0.7);
+  border: 2px solid #ff3399;
+  border-radius: 8px;
+  padding: 7px 12px;
+  margin: 14px auto;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 1em;
+  max-width: 360px;
+  box-shadow: 0 0 10px #ff3399;
+  text-align: center;
+}
+
+.aviso-login {
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 2px solid #ff3399;
+  border-radius: 12px;
+  color: #fff;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 1rem;
+  text-align: center;
+  padding: 18px 10px;
+  margin: 24px auto 10px auto;
+  box-shadow: 0 0 8px #ff3399, 0 0 20px #00ff99 inset;
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+.aviso-login a {
+  color: #33ffff;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.aviso-login a:hover {
+  color: #ff3399;
+}

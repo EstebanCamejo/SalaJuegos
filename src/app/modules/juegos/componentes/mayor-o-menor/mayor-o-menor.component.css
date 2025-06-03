@@ -1,88 +1,247 @@
 /* mayor-o-menor.component.css */
 .mayor-menor-container {
-background-image: url('../../../../../assets/fondo-arcade-principal.jpg');
-background-repeat: repeat;
-background-size: 180px 180px;
-min-height: 100vh;
-padding: 2rem;
-text-align: center;
-color: #ff9933;
+    background-image: url('../../../../../assets/fondo-arcade-principal.jpg');
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+    color: #ff9933;
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
 }
 
 .titulo {
-font-size: 2rem;
-text-shadow: 0 0 8px #ff9933;
-margin-bottom: 2rem;
+    font-size: 2rem;
+    text-shadow: 0 0 8px #ff9933;
+    margin-bottom: 2rem;
 }
 
 .cartas {
-display: flex;
-justify-content: center;
-gap: 40px;
-margin: 20px auto;
-flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px auto;
+    flex-wrap: wrap;
 }
 
 .carta {
-display: flex;
-flex-direction: column;
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .carta img {
-width: 150px;
-height: auto;
-border-radius: 8px;
-box-shadow: 0 0 10px #00ff99;
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00ff99;
 }
 
 .botones button {
-margin: 0.5rem;
-padding: 0.75rem 1.5rem;
-font-size: 1rem;
-font-weight: bold;
-background-color: #343b55;
-color: #33ffff;
-border: 2px solid #33ffff;
-border-radius: 8px;
-cursor: pointer;
-transition: 0.3s ease;
+    margin: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #343b55;
+    color: #33ffff;
+    border: 2px solid #33ffff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .botones button:hover {
-background-color: #00ff99;
-color: #0d0c1d;
-border-color: #00ff99;
+    background-color: #00ff99;
+    color: #0d0c1d;
+    border-color: #00ff99;
 }
 
 .resultado {
-margin-top: 2rem;
+    margin-top: 2rem;
 }
+
 .resultado p.text-success {
-color: #00ff99;
-font-size: 1.4em;
-font-weight: bold;
-text-shadow: 0 0 10px #00ff99;
+    color: #00ff99;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ff99;
 }
 
 .resultado p.text-danger {
-color: #ff4d4d;
-font-size: 1.3em;
-font-weight: bold;
+    color: #ff4d4d;
+    font-size: 1.3em;
+    font-weight: bold;
 }
+
 .text-puntaje {
-font-size: 1.25rem;
-font-weight: bold;
-color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 .text-success {
-color: #00ff99;
-font-weight: bold;
+    color: #00ff99;
+    font-weight: bold;
 }
   
 .text-danger {
-color: #ff4d4d;
-font-weight: bold;
+    color: #ff4d4d;
+    font-weight: bold;
 }
+
+.mensaje-recuadro {
+    border: 2px solid #00f7ff;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px #00f7ff;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   
+  .mensaje-recuadro.exito {
+    color: #00ff88;
+    border-color: #00ff88;
+    box-shadow: 0 0 15px #00ff88;
+  }
+  
+  .mensaje-recuadro.error {
+    color: #ff4d4d;
+    border-color: #ff4d4d;
+    box-shadow: 0 0 15px #ff4d4d;
+  }
+
+  .boton-reinicio {
+    background-color: transparent;
+    color: #00f7ff;
+    border: 2px solid #00f7ff;
+    border-radius: 10px;
+    padding: 0.6rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+  }
+  
+  .boton-reinicio:hover {
+    background-color: #00f7ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f7ff, 0 0 25px #00f7ff;
+    transform: scale(1.05);
+  }
+  
+  .bloque-puntaje {
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin: 10px auto;
+    color: #00ffff;
+    font-weight: bold;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 12px #00ffff;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+  }
+  
+  .bloque-final {
+    color: #00ffff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 10px #00ffff;
+    margin-top: 1.5rem;
+  }
+  
+  .globo-reglas {
+    background: rgba(0,0,0,0.92);
+    border: 2.5px solid #ff3399;
+    border-radius: 16px;
+    box-shadow: 0 0 16px #ff3399, 0 0 30px #00ff99 inset;
+    color: #fff;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    text-align: left;
+    margin: 2rem auto 0 auto;
+    padding: 26px 28px 18px 28px;
+    max-width: 520px;
+  }
+  
+  .globo-reglas h4 {
+    color: #ff3399;
+    text-shadow: 0 0 7px #ff3399;
+    margin-bottom: 16px;
+    font-size: 1.08rem;
+  }
+  
+  .globo-reglas ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  
+  .globo-reglas li {
+    color: #00ffff;
+    margin-bottom: 10px;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    text-shadow: 0 0 4px #00ffff;
+  }
+  .aviso-login {
+  background-color: rgba(0, 0, 0, 0.96);
+  border: 2px solid #ff3399;
+  border-radius: 14px;
+  color: #fff;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 1rem;
+  text-align: center;
+  padding: 16px 8px 14px 8px;
+  margin: 24px auto 10px auto;
+  box-shadow: 0 0 8px #ff3399, 0 0 20px #00ff99 inset;
+  max-width: 420px;
+  line-height: 1.7;
+}
+
+.aviso-login a {
+  color: #33ffff;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.aviso-login a:hover {
+  color: #ff3399;
+}
+
+
+.aviso-login {
+  background-color: rgba(0, 0, 0, 0.96);
+  border: 2px solid #ff3399;
+  border-radius: 14px;
+  color: #fff;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 1rem;
+  text-align: center;
+  padding: 16px 8px 14px 8px;
+  margin: 24px auto 10px auto;
+  box-shadow: 0 0 8px #ff3399, 0 0 20px #00ff99 inset;
+  max-width: 420px;
+  line-height: 1.7;
+}
+
+.aviso-login a {
+  color: #33ffff;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.aviso-login a:hover {
+  color: #ff3399;
+}

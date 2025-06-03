@@ -1,2 +1,55 @@
-<h1>Juego Preguntados</h1>
-<p>Aquí irá el juego Preguntados.</p>
+
+<section class="fondo-preguntados d-flex justify-content-center align-items-center">
+  <div class="contenedor-preguntados p-4">
+    <h1 class="titulo text-center text-white mb-4">❓ Preguntados:</h1>
+    <div *ngIf="mostrarAvisoLogin" class="aviso-login">
+      <span>🔒 Para guardar tu puntuación debes estar <a routerLink="/login">logueado</a> o <a routerLink="/registro">registrado</a>.</span>
+    </div>
+    
+    <h3 class="titulo text-center text-white mb-4 seccion-recuadro"> ¿Cómo se llama este personaje?</h3>
+
+    <div class="zona-juego">
+      <div class="zona-imagen mb-3 text-center ">
+        <img [src]="imagenPersonaje" alt="Personaje" class="imagen-personaje" />
+      </div>
+
+      <div class="opciones-respuesta d-flex flex-wrap justify-content-center mb-4">
+        <button
+          class="btn-opcion m-2"
+          *ngFor="let opcion of opciones"
+          [disabled]="juegoTerminado"
+          (click)="elegirRespuesta(opcion)">
+          {{ opcion }}
+        </button>
+      </div>
+
+      <div class="estado-juego mb-3">
+        <div class="bloque-estado">
+          ✅ Aciertos: <strong>{{ aciertos }}</strong>
+        </div>
+        <div class="bloque-estado">
+          ❌ Errores: <strong>{{ errores }}</strong> / {{ maxErrores }}
+        </div>
+      </div>
+      
+      <div *ngIf="juegoTerminado" class="resultado-juego text-center mt-3">
+        <p class="mensaje-final">{{ mensajeFinal }}</p>
+        <p class="text-white mt-2">🧠 Puntaje final: {{ puntaje }}</p>
+        <button class="btn-reiniciar" (click)="reiniciarJuego()">Jugar de nuevo</button>
+      </div>
+    </div>
+
+
+
+    <div class="reglas text-white seccion-recuadro mt-4">
+      <h4 class="text-warning">📜 Reglas del juego</h4>
+      <ul class="text-white">
+        <li>✅ Tenés que adivinar correctamente 10 personajes.</li>
+        <li>❌ Solo podés fallar 3 veces.</li>
+        <li>🏆 Cada acierto suma puntos, cada fallo resta 10.</li>
+        <li>💯 Puntaje perfecto: 100 puntos (sin errores).</li>
+        <li>📉 Si perdés las 3 vidas, tu puntaje es 0.</li>
+      </ul>    
+    </div>
+  </div>
+</section>

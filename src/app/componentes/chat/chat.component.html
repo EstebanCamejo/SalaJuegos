@@ -1,21 +1,37 @@
 
-   <section class="fondo-chat d-flex justify-content-center align-items-center">
-   <br>
-  
-    <div class="chat-container p-3">
-      <h2 class="text-center text-white mb-3">💬 Sala de Chat Arcade</h2>
-  
-      <div class="chat-mensajes mb-3"  #scrollContainer>
-        <div *ngFor="let mensaje of mensajes" class="mensaje">
-          <strong class="text-info">{{ mensaje.usuario }} ({{ mensaje.created_at | date:'shortTime':'-0600' }}):</strong>
-          <span class="text-white">{{ mensaje.contenido }}</span>
-        </div>
-      </div>
-  
-      <div class="d-flex">
-        <input [(ngModel)]="nuevoMensaje" placeholder="Escribe tu mensaje..." class="form-control me-2">
-        <button class="btn btn-outline-info" (click)="enviarMensaje()">Enviar</button>
+  <section class="fondo-chat d-flex justify-content-center align-items-center">
+
+  <div class="chat-container p-3">
+    <h3 class="text-center text-white mb-3">💬 Sala de Chat Arcade</h3>
+
+    <div class="chat-mensajes mb-3"  #scrollContainer>
+      <div *ngFor="let mensaje of mensajes" 
+        class="mensaje"
+        [ngClass]="{ 'mensaje-usuario': mensaje.usuario === usuarioEmail, 
+                      'mensaje-otro': mensaje.usuario !== usuarioEmail }">
+        <div class="globo-mensaje" 
+            [ngClass]="{ 'globo-usuario': mensaje.usuario === usuarioEmail }"
+            [ngStyle]="mensaje.usuario !== usuarioEmail ? { 'background-color': asignarColor(mensaje.usuario) } : {}">
+          
+            <div class="meta-mensaje text-start" *ngIf="mensaje.usuario !== usuarioEmail">
+              <strong>{{ mensaje.usuario }}</strong>
+            </div>
+          
+            <div class="contenido-mensaje">{{ mensaje.contenido }}</div>
+          
+            <div class="meta-mensaje text-end">
+              <span>{{ formatearFechaArgentina(mensaje.created_at) }}</span>
+            </div>            
+        </div>        
       </div>
     </div>
-  </section>
+
+    <div class="d-flex">
+      <input [(ngModel)]="nuevoMensaje" placeholder="Escribe tu mensaje..." class="form-control me-2" 
+      (keydown.enter)="enviarMensaje()">
+      <button class="btn btn-outline-info" (click)="enviarMensaje()">Enviar</button>
+    </div>
+
+  </div>
+</section>
   

@@ -1,0 +1,70 @@
+
+<section class="fondo-emoji">
+  <div class="emoji-container">
+
+    <h1 class="titulo-juego">✨ Encuentra el Emoji Diferente ✨</h1>
+    <div *ngIf="mostrarAvisoLogin" class="aviso-login">
+      <span>🔒 Para guardar tu puntuación debes estar <a routerLink="/login">logueado</a> o <a routerLink="/registro">registrado</a>.</span>
+    </div>
+    
+    <!-- Botones de dificultad -->
+    <div class="niveles">
+      <button class="btn-nivel" 
+      [class.nivel-activo]="dificultadSeleccionada === 1"
+      (click)="seleccionarDificultad(1)">Fácil (1)</button>
+      <button class="btn-nivel" 
+      [class.nivel-activo]="dificultadSeleccionada === 2"
+      (click)="seleccionarDificultad(2)">Medio (2)</button>
+      <button class="btn-nivel" 
+      [class.nivel-activo]="dificultadSeleccionada === 3"      
+      (click)="seleccionarDificultad(3)">Difícil (3)</button>
+    </div>
+
+    <!-- Estado del juego -->
+    <div class="estado-juego" *ngIf="jugando">
+      <div>Nivel: {{ nivel }}</div>
+      <div>Vidas: {{ vidas }}</div>
+      <div>Tiempo: {{ tiempoRestante }}s</div>
+    </div>
+
+    <!-- Tablero de emojis -->
+    <div class="tablero" *ngIf="jugando">
+      <button 
+        class="emoji-celda" 
+        *ngFor="let emoji of tablero; let i = index" 
+        (click)="seleccionarEmoji(i)"
+        [disabled]="seleccionados.includes(i) || finalizado">
+        {{ emoji }}
+      </button>
+    </div>
+
+    <!-- Resultado final -->
+    <div *ngIf="finalizado" class="resultado-final">
+      <p class="mensaje-final text-neon">{{ mensajeFinal }}</p>
+      <button class="btn-reiniciar" (click)="reiniciarJuego()">Jugar de nuevo</button>
+    </div>
+
+    <!-- Cuenta regresiva antes de iniciar el juego -->
+    <div *ngIf="!finalizado && !jugando && mensajeFinal" class="resultado-final">
+      <p class="mensaje-final text-neon">{{ mensajeFinal }}</p>
+    </div>
+
+    
+
+    <!-- Reglas -->
+    <div class="reglas-juego">
+      <h4>📖 Reglas del juego</h4>
+      <ul>
+        <li>🔹 Elegí un nivel de dificultad para comenzar.</li>
+        <li>🚀 Cada nivel muestra un tablero de emojis.</li>
+        <li>🌟 Hay 1, 2 o 3 emojis distintos según la dificultad.</li>
+        <li>⌛ Tenés 5 segundos por jugada para elegir el/los emoji(s) distinto(s).</li>
+        <li>👉 Solo podés seleccionar cada emoji una sola vez por ronda.</li>
+        <li>⛔️ Solo podés perder hasta 3 vidas.</li>
+        <li>❤️ Perdés una vida si te equivocás o si se termina el tiempo.</li>
+        <li>🏆 Ganás si superás los 5 niveles sin perder todas tus vidas.</li>
+        <li>🥇 Tu puntaje final depende de la dificultad, errores y vidas perdidas.</li>        
+      </ul>
+    </div>
+  </div>
+</section>

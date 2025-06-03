@@ -1,76 +1,187 @@
+
 .sobremi-section {
-    min-height: 100vh;
-    background-image: url("../../../assets/fondoSobreMi2.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding-top: 100px;
-    overflow: hidden;
-    /* background-color: #0d0c1d;*/
+  min-height: 100vh;
+  background-image: url("../../../assets/fondoSobreMi2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 12px;          /* Menor espacio arriba */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sobremi-layout {
+  width: 98vw;
+  max-width: 840px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bloque-superior {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;              /* Un poco menos de espacio */
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.card_info {
+  width: 350px;
+  min-height: 170px;
+  max-width: 360px;
+  background: rgba(46, 49, 76, 0.95);
+  color: white;
+  padding: 16px 13px 13px 13px;
+  border-radius: 24px;
+  box-shadow: 0 0 10px #00ff99;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 14px;
+}
+
+.card_landing {
+  background-image: url("../../../assets/esteban.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 110px;
+  height: 130px;
+  border-radius: 18px;
+  box-shadow: 0 6px 12px #00ff99;
+}
+
+.bloque-inferior {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card_juego {
+  width: 350px;
+  max-width: 360px;
+  min-height: 120px;
+  background: rgba(46, 49, 76, 0.96);
+  color: white;
+  padding: 15px 13px 12px 13px;
+  border-radius: 24px;
+  box-shadow: 0 0 10px #00ff99;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.head .title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ff9933;
+  text-shadow: 0 0 3px #ff9933;
+  margin-bottom: 5px;
+}
+
+.content {
+  font-size: 13.2px;
+  line-height: 1.34;
+  color: #dcdcdc;
+  font-family: 'Courier New', monospace;
+}
+
+.card_juego ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+@media (max-width: 800px) {
+  .sobremi-layout { max-width: 100vw; }
+  .bloque-superior { flex-direction: column; gap: 6px; }
+  .card_info, .card_juego { width: 96vw; max-width: 98vw; }
+  .card_landing { margin-bottom: 12px; }
+}
+
+.sobremi-layout-row {
+  width: 100vw;
+  max-width: 1120px;  /* Aumenta el máximo para que no quede todo tan comprimido */
+  min-height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 38px;          /* Más separación horizontal */
+  padding-top: 35px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.card_info, .card_juego {
+  width: 370px;
+  min-height: 240px;
+  max-width: 420px;
+  background: rgba(46, 49, 76, 0.96);
+  color: white;
+  padding: 22px 18px 18px 18px;
+  border-radius: 26px;
+  box-shadow: 0 0 11px #00ff99;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 15.2px;       /* Leve aumento para mejor lectura */
+}
+
+.card_landing {
+  background-image: url("../../../assets/esteban.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 170px;
+  height: 200px;
+  border-radius: 26px;
+  box-shadow: 0 6px 16px #00ff99;
+  flex-shrink: 0;
+}
+
+.head .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff9933;
+  text-shadow: 0 0 3px #ff9933;
+  margin-bottom: 9px;
+}
+.content {
+  font-size: 15px;
+  line-height: 1.36;
+  color: #dcdcdc;
+  font-family: 'Courier New', monospace;
+}
+.card_juego ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+/* Responsive */
+@media (max-width: 850px) {
+  .sobremi-layout-row {
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 22px;
   }
-  
-  .sobremi-card {
-    position: relative;
-    width: 350px;
-    height: 500px;
-    margin: 0 auto;
-    border-radius: 30px;
-  }
-  
-  .card_landing {
-    background-image: url("../../../assets/esteban.jpg"); /* Usá tu imagen real */
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 5px 15px #00ff99;
-    border-radius: 30px;
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
   .card_info, .card_juego {
-    position: absolute;
-    width: 90%;
-    height: 80%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background: rgba(46, 49, 76, 0.95);
-    color: white;
-    padding: 20px;
-    border-radius: 30px;
-    box-shadow: 0 0 12px #00ff99;
-    z-index: 0;
-    transition: 0.5s;
+    width: 94vw;
+    max-width: 96vw;
+    min-height: unset;
   }
-  
-  .sobremi-card:hover .card_info {
-    right: -200%;
-  }
-  .sobremi-card:hover .card_juego {
-    left: -200%;
-  }
-  
-  .head {
-    border-bottom: 1px solid #33ffff;
-    margin-bottom: 10px;
-  }
-  
-  .head .title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ff9933;
-    text-shadow: 0 0 4px #ff9933;
-  }
-  
-  .content {
-    font-size: 15px;
-    line-height: 1.4;
-    color: #dcdcdc;
-  }
-  
+  .card_landing { margin: 0 0 6px 0; }
+}

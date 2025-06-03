@@ -1,0 +1,91 @@
+<section class="fondo-encuesta">
+    <div class="encuesta-container">
+      <h2 class="titulo-encuesta">📝 Encuesta de Satisfacción</h2>
+  
+      <form [formGroup]="encuestaForm" (ngSubmit)="enviarEncuesta()" class="formulario-encuesta">
+  
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" formControlName="nombre" />
+            <div *ngIf="encuestaForm.get('nombre')?.invalid && encuestaForm.get('nombre')?.touched" class="mensaje">
+              El nombre es requerido.
+            </div>
+          </div>
+          <div class="campo">
+            <label for="apellido">Apellido</label>
+            <input id="apellido" type="text" formControlName="apellido" />
+            <div *ngIf="encuestaForm.get('apellido')?.invalid && encuestaForm.get('apellido')?.touched" class="mensaje">
+              El apellido es requerido.
+            </div>
+          </div>
+        </div>
+  
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="edad">Edad</label>
+            <input id="edad" type="number" formControlName="edad" />
+            <div *ngIf="encuestaForm.get('edad')?.invalid && encuestaForm.get('edad')?.touched" class="mensaje">
+              <div *ngIf="encuestaForm.get('edad')?.errors?.['required']">La edad es requerida.</div>
+              <div *ngIf="encuestaForm.get('edad')?.errors?.['min']">Debes ser mayor de 18 años.</div>
+              <div *ngIf="encuestaForm.get('edad')?.errors?.['max']">La edad debe ser menor de 99 años.</div>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" type="text" formControlName="telefono" />
+            <div *ngIf="encuestaForm.get('telefono')?.invalid && encuestaForm.get('telefono')?.touched" class="mensaje">
+              <div *ngIf="encuestaForm.get('telefono')?.errors?.['required']">El teléfono es requerido.</div>
+              <div *ngIf="encuestaForm.get('telefono')?.errors?.['pattern']">Debe contener solo números y hasta 10 dígitos.</div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="campo pregunta">
+          <label>¿Recomendarías la sala ARCADE PIXEL 🎮?</label>
+          <div>
+            <input type="radio" formControlName="recomendar" value="sí" id="recomendar-si" />
+            <label for="recomendar-si" class="radio-text">Sí</label>
+            <input type="radio" formControlName="recomendar" value="no" id="recomendar-no" />
+            <label for="recomendar-no" class="radio-text">No</label>
+          </div>
+          <div *ngIf="encuestaForm.get('recomendar')?.invalid && encuestaForm.get('recomendar')?.touched" class="mensaje">
+            Es necesario responder si recomendarías la sala.
+          </div>
+        </div>
+  
+        <div class="campo pregunta">
+          <label for="juegoFavorito">¿Cuál es tu juego favorito?</label>
+          <select id="juegoFavorito" formControlName="juegoFavorito">
+            <option value="">Selecciona tu juego favorito</option>
+            <option value="ahorcado">Ahorcado</option>
+            <option value="mayor-menor">Mayor o Menor</option>
+            <option value="preguntados">Preguntados</option>
+            <option value="emoji-diferente">Emoji-diferente</option>
+          </select>
+          <div *ngIf="encuestaForm.get('juegoFavorito')?.invalid && encuestaForm.get('juegoFavorito')?.touched" class="mensaje">
+            Selecciona tu juego favorito.
+          </div>
+        </div>
+  
+        <div class="campo pregunta">
+          <label for="juegosNuevos">¿Qué juegos te gustaría que se agreguen?</label>
+          <textarea id="juegosNuevos" formControlName="juegosNuevos"></textarea>
+          <div *ngIf="encuestaForm.get('juegosNuevos')?.invalid && encuestaForm.get('juegosNuevos')?.touched" class="mensaje">
+            Es necesario agregar alguna sugerencia de juegos.
+          </div>
+        </div>
+  
+        <button class="btn-encuesta" type="submit" [disabled]="encuestaForm.invalid">Enviar Encuesta</button>
+      </form>
+
+      <div *ngIf="mensajeExito" class="alerta-exito text-center">
+        {{ mensajeExito }}
+      </div>
+      <div *ngIf="mensajeError" class="alerta-error text-center">
+        {{ mensajeError }}
+      </div>
+      
+   </div>
+  </section>
+  

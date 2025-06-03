@@ -1,0 +1,53 @@
+.fondo-top {
+    background-image: url('../../../assets/top-resultados.png');
+    background-repeat: repeat; /* mosaico */
+    background-size: 150px 150px;
+    background-image: rgba(0,0,0,0.5);
+    padding: 40px 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .top-container {
+    background: rgba(46, 49, 76, 0.96);
+    border: 2px solid #33ffff;
+    border-radius: 18px;
+    box-shadow: 0 0 16px #00ff99;
+    max-width: 600px;
+    width: 95vw;
+    padding: 22px 15px 16px 15px;
+  }
+  .titulo-top {
+    color: #33ffff;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    text-shadow: 0 0 8px #00ff99;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+  .tabla-top {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.06);
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    color: #fff;
+    font-size: 1em;
+    margin-bottom: 12px;
+  }
+  .tabla-top th, .tabla-top td {
+    padding: 7px;
+    text-align: center;
+    border-bottom: 1px solid #33ffff;
+  }
+  .tabla-top thead th {
+    color: #00ff99;
+    background: #222;
+  }
+  .mensaje {
+    text-align: center;
+    color: #ff3399;
+    margin: 13px 0 6px 0;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+  }
+  

@@ -1,5 +1,6 @@
+
 .gradient-custom {
-  background-image: url("../../../assets/arcade-fondo-login.png");
+  background-image: url("../../../assets/logo-arcade.png");
   background-repeat: repeat;
   background-size: 180px 180px;
   background-position: top left;
@@ -7,21 +8,28 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; /* 👉 centra verticalmente */
-  padding: 0 1rem;
-  overflow: hidden; /* evita desbordes */
+  align-items: center;
+  padding: 0px 1rem;  /* 👈 Espacio arriba para el navbar */
+  overflow: hidden;
 }
+.gradient-custom,
+.gradient-custom * {
+  font-family: 'Press Start 2P', 'Courier New', monospace !important;
+}
+
 
 .card {
-  background-color: rgba(46, 49, 76, 0.92) !important;
-  border: 2px solid #33ffff;
-  box-shadow: 0 0 15px #00ff99;
-  border-radius: 1rem;
-  padding: 2rem;
+  background: rgba(0,0,0,0.94) !important;
+  border: 2.5px solid #33ffff;
+  border-radius: 22px;
+  box-shadow: 0 0 16px #33ffff, 0 0 32px #00ff99 inset;
+  color: #fff;
   max-width: 360px;
   width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 35px 25px 30px 25px;
 }
-
 .card-body {
   padding: 1.5rem !important;
   font-size: 0.9rem;

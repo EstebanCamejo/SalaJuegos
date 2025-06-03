@@ -1,35 +1,85 @@
 <!-- ahorcado.component.html -->
-<div class="ahorcado-container">
+<!-- <div class="ahorcado-container"> -->
+  <div class="ahorcado-container" [ngClass]="{
+    'fondo-ganador': partidaFinalizada && gano,'fondo-perdedor': partidaFinalizada && !gano
+  }">
+  
     <br>
     <br>
-    <h1>Juego del Ahorcado</h1>
+    <div class="text-center">
+      <h1 class="titulo-ahorcado">Juego del Ahorcado</h1>
+    </div>
+    <div *ngIf="mostrarAvisoLogin" class="aviso-login">
+      <span>🔒 Para guardar tu puntuación debes estar <a routerLink="/login">logueado</a> o <a routerLink="/registro">registrado</a>.</span>
+    </div>
+    <div class="zona-principal">
+      <div class="lado-izquierdo">
+        <img [src]="getImagenAhorcado()" alt="Ahorcado" class="imagen-ahorcado">
+      </div>
     
-    <br>
-    <img [src]="getImagenAhorcado()" alt="Ahorcado" class="imagen-ahorcado">
-    <br>
+      <div class="lado-derecho">
 
-    <p class="palabra">
-      <span *ngFor="let letra of palabraMostrada">{{ letra }}</span>
-    </p>
+        <div class="bloque-puntaje">
+          🧠 Palabra relacionada a sistemas/programación
+        </div>
+    
+        <p class="palabra">
+          <span *ngFor="let letra of palabraMostrada">{{ letra }}</span>
+        </p>
+
+        <div class="puntaje-actual">
+          🎯 Puntaje actual: {{ puntajeActual }} puntos
+        </div>
+
+        
+      </div>
+    </div>
     
     <div class="botones-letras">
-      <button *ngFor="let letra of alfabeto" (click)="arriesgarLetra(letra)">
+      <button *ngFor="let letra of alfabeto"
+        (click)="arriesgarLetra(letra)"
+        [disabled]="letrasIngresadas.includes(letra)"
+        [ngClass]="{ 'letra-usada': letrasIngresadas.includes(letra) }">
         {{ letra }}
       </button>
     </div>
-  
-    <p class="errores">Errores: {{ errores }} / {{ maxErrores }}</p>
-  
-    <button class="reiniciar" (click)="reiniciarJuego()">Reiniciar juego</button>
+    
+    <div *ngIf="mensajeExito" class="alerta-exito">{{ mensajeExito }}</div>
+    <div *ngIf="mensajeError" class="alerta-error">{{ mensajeError }}</div>
 
-
-    <div class="puntajes">
-      <h3 class="text-warning">Últimos puntajes</h3>
+    <div class="bloque-puntaje">
+      ❌ Errores: {{ errores }} / {{ maxErrores }}
+    </div>
+    
+    <!-- Mensaje de resultado al finalizar -->
+    <div *ngIf="partidaFinalizada" class="resultado">
+      <div class="mensaje-recuadro">
+        <p>{{ mensaje }}</p>
+        <button class="btn-arcade" (click)="reiniciarJuego()">🔁 Jugar de nuevo</button>
+      </div>
+    </div>
+    
+<!-- 
+    <div class="puntajes">      
+      <div class="text-center">
+        <h3 class="titulo-puntajes">Últimos puntajes</h3>
+      </div>
       <ul class="text-white">
         <li *ngFor="let p of puntajes">
           {{ p.email }} - {{ p.puntaje }} puntos ({{ p.resultado }})
         </li>
       </ul>
+    </div> -->
+    
+    <div class="reglas-juego">
+      <h4>📜 Reglas del juego</h4>
+      <p>
+        ✅ Adiviná la palabra letra por letra.<br>
+        ❌ Tenés 6 intentos como máximo.<br>
+        🧠 Por cada error se restan 10 puntos.<br>
+        🏆 Si adivinás con pocos errores, tu puntaje será mayor.<br>
+        🥇 Puntaje máximo: 100 puntos por partida.
+      </p>
     </div>
     
   </div>

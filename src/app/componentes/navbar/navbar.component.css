@@ -1,22 +1,20 @@
-nav.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: #0d0c1d !important;
-  border-bottom: 2px solid #33ffff;
-  box-shadow: 0 0 10px #00ff99;
+
+nav.navbar, 
+nav.navbar * {
+  font-family: 'Press Start 2P', 'Courier New', monospace !important;
+  font-size: 13px; /* Tamaño coherente con otros componentes */
+  letter-spacing: 1.2px;
 }
 
-.navbar-brand {
+
+
+
+
+.navbar-brand, .brand-text {
   color: #ff9933 !important;
   font-weight: bold;
-  font-size: 1.4rem;
-  text-shadow: 0 0 8px #ff9933;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-size: 1.2rem !important; /* Menos grande para igualar a otros */
+  text-shadow: 0 0 6px #ff9933;
 }
 
 .nav-link {
@@ -25,6 +23,7 @@ nav.navbar {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: 0.3s;
+  font-size: 13px !important;
 }
 
 .nav-link:hover,
@@ -32,6 +31,7 @@ nav.navbar {
   color: #33ffff !important;
   text-shadow: 0 0 5px #00ff99;
 }
+
 .logo-navbar {
   width: 40px;
   height: 40px;
@@ -42,14 +42,8 @@ nav.navbar {
   background-repeat: no-repeat;
   background-position: center;
 }
-.brand-text {
-  color: #ff9933;
-  font-weight: bold;
-  font-size: 1.4rem;
-  text-shadow: 0 0 6px #ff9933;
-}
 .text-white.fw-bold.ms-3 {
   font-size: 1rem;
   color: #00ff99 !important;
   text-shadow: 0 0 4px #00ff99;
-}
+} 

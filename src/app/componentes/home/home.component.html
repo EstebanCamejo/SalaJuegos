@@ -1,10 +1,18 @@
-<section class="fondo-home">
-  <div *ngIf="correoUsuario" class="mb-4 text-white text-center">
-    <p class="fw-bold">👋 ¡Bienvenido! Sesión iniciada como: {{ correoUsuario }}</p>
+
+<section class="fondo-home">  
+
+  <app-top-resultados 
+  *ngIf="juegoParaTop"
+  [juego]="juegoParaTop"
+  (cerrar)="cerrarTopResultados()">
+</app-top-resultados>
+
+
+  <div *ngIf="correoUsuario" class="bienvenida-globo">
+    👋 ¡Bienvenido! Sesión iniciada como: {{ correoUsuario }}
   </div>
   
-  <h1 class="text-center text-white fw-bold mb-5">🎮 Seleccioná tu juego</h1>
-
+  <h1 class="titulo-home">🎮 Seleccioná tu juego</h1>
   <div class="card-container">
 
     <!-- Juego 1: Ahorcado -->
@@ -14,7 +22,13 @@
         <p class="card-text">Adiviná la palabra oculta, una letra a la vez.</p>
         <div class="mt-auto">
           <button class="btn btn-outline-light w-100 mb-2" (click)="irAJuego('ahorcado')">Jugar</button>
-          <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('ahorcado')">Mejores puntajes</button>
+          <!-- <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('ahorcado')">Mejores puntajes</button> -->
+          <button class="btn btn-outline-light w-100 btn-ver-top" [routerLink]="['/top-resultados',  'ahorcado']">
+            Mejores puntajes
+          </button>
+          
+        
+        
         </div>
       </div>
     </div>
@@ -26,7 +40,10 @@
         <p class="card-text">La próxima carta del mazo, ¿es mayor o menor que la que recién salió?</p>
         <div class="mt-auto">
           <button class="btn btn-outline-light w-100 mb-2" (click)="irAJuego('mayor-o-menor')">Jugar</button>
-          <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('mayor-o-menor')">Mejores puntajes</button>
+          <!-- <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('mayor-o-menor')">Mejores puntajes</button> -->
+          <button class="btn btn-outline-light w-100 btn-ver-top" [routerLink]="['/top-resultados',  'mayor-o-menor']">
+            Mejores puntajes
+          </button>
         </div>
       </div>
     </div>
@@ -38,7 +55,10 @@
         <p class="card-text">¿Cuántos personajes de Rick & Morty conocés?</p>
         <div class="mt-auto">
           <button class="btn btn-outline-light w-100 mb-2" (click)="irAJuego('preguntados')">Jugar</button>
-          <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('preguntados')">Mejores puntajes</button>
+          <!-- <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('preguntados')">Mejores puntajes</button> -->
+          <button class="btn btn-outline-light w-100 btn-ver-top" [routerLink]="['/top-resultados',  'preguntados']">
+            Mejores puntajes
+          </button>
         </div>
       </div>
     </div>
@@ -46,11 +66,14 @@
     <!-- Juego 4: Juego a elección -->
     <div class="card bg-dark text-white">
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title text-uppercase">Juego a elección</h5>
-        <p class="card-text">Juego en proceso de creación.</p>
+        <h5 class="card-title text-uppercase">Emoji Diferente</h5>
+        <p class="card-text">Descubre el emoji intruso.</p>
         <div class="mt-auto">
-          <button class="btn btn-outline-light w-100 mb-2" disabled>Jugar</button>
-          <button class="btn btn-outline-secondary w-100" disabled>Mejores puntajes</button>
+          <button class="btn btn-outline-light w-100 mb-2" (click)="irAJuego('emoji-diferente')">Jugar</button>
+          <!-- <button class="btn btn-outline-secondary w-100" (click)="verPuntajes('emoji-diferente')">Mejores puntajes</button> -->
+          <button class="btn btn-outline-light w-100 btn-ver-top" [routerLink]="['/top-resultados',  'emoji-diferente']">
+            Mejores puntajes
+          </button>
         </div>
       </div>
     </div>

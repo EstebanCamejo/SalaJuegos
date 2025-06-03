@@ -1,28 +1,53 @@
-.gradient-custom {
-  background-image: url("../../../assets/logo-arcade.png"); /* imagen de fondo tipo mosaico */
+
+.fondo-login {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("../../../assets/logo-arcade.png");
   background-repeat: repeat;
   background-size: 200px 200px;
-  background-position: top left;
   background-color: #0d0c1d;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; /* 👈 centrado vertical */
+  align-items: center;
+  font-family: 'Press Start 2P', 'Courier New', monospace !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.gradient-custom,
+.gradient-custom * {
+  font-family: 'Press Start 2P', 'Courier New', monospace !important;
+}
+
+.gradient-custom {
+ 
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0 1rem;
   overflow: hidden;
+  position: fixed; /* hace que ocupe toda la pantalla sin desplazarse */
+  top: 0;
+  left: 0;
 }
 
 /* Tarjeta login compacta y centrada */
+
 .card {
-  background-color: rgba(46, 49, 76, 0.92) !important;
-  border: 2px solid #33ffff;
-  box-shadow: 0 0 15px #00ff99;
-  border-radius: 1rem;
-  padding: 2rem;
+  background: rgba(0,0,0,0.92);
+  border: 2.5px solid #33ffff;
+  border-radius: 22px;
+  box-shadow: 0 0 16px #33ffff, 0 0 32px #00ff99 inset;
+  color: #fff;
   max-width: 360px;
   width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 35px 25px 30px 25px;
 }
-
 /* Contenido interno reducido */
 .card-body {
   padding: 1.5rem !important;

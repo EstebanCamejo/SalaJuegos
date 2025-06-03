@@ -1,0 +1,30 @@
+
+<section class="fondo-top">
+    <div class="top-container">
+      <h2 class="titulo-top">🏆 Top Resultados {{ juego | titlecase }}</h2>
+      
+      <button class="btn btn-outline-light mb-3" (click)="volverAlHome()">Volver</button>
+
+      <div *ngIf="mensaje" class="mensaje">{{ mensaje }}</div>
+      <table *ngIf="top.length" class="tabla-top">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Usuario</th>
+            <th>Puntaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of top; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              {{ entry.usuario?.email || entry.usuario || 'anónimo' }}
+            </td>            
+            <td>{{ entry.puntaje }}</td>            
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="!top.length && !mensaje" class="mensaje">No hay resultados registrados.</div>
+    </div>
+  </section>
+  

@@ -6,7 +6,8 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; 
+  padding-top: 0!important; 
 }
 
 .chat-container {
@@ -14,11 +15,15 @@
   border: 2px solid #33ffff;
   box-shadow: 0 0 15px #00ff99;
   border-radius: 1rem;
-  width: 400px;
-  max-height: 80vh;
+  width: 600px;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
+  padding: 18px 10px 14px 10px;
+  font-family: 'Press Start 2P', 'Courier New', monospace !important;
+  margin-top: 0!important;
 }
+
 
 .chat-mensajes {
   background-color: #1a1a2e;
@@ -30,7 +35,20 @@
 }
 
 .mensaje {
-  margin-bottom: 0.5rem;
+  display: flex;
+  margin: 0.5rem 0;
+}
+
+.mensaje-usuario {
+  justify-content: flex-start;
+}
+
+.mensaje-otro {
+  justify-content: flex-end;
+}
+.mensaje-usuario .globo-mensaje {
+  background-color: #ff6ec7; /* Rosado brillante */
+  color: #0d0c1d;
 }
 
 input.form-control {
@@ -39,4 +57,32 @@ input.form-control {
 
 button.btn {
   white-space: nowrap;
+}
+
+.globo-mensaje {
+  max-width: 70%;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  position: relative;
+  word-wrap: break-word;
+  box-shadow: 0 0 8px #00ffff55;
+  font-size: 1.02rem;
+}
+
+.globo-usuario {
+  background-color: #ff6ec7; /* Rosado brillante */
+  color: #0d0c1d;
+  align-self: flex-start;
+}
+
+.globo-otro {
+  background-color: #3e8ed0;
+  color: white;
+  align-self: flex-start;
+}
+
+.meta-mensaje {
+  font-size: 0.75rem;
+  color: #e0e0e0;
+  margin-bottom: 0.3rem;
 }

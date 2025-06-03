@@ -1,39 +1,52 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from '../../auth.service';
-import { CommonModule, NgIf } from '@angular/common';
+import { Router , RouterModule} from '@angular/router';
+import { CommonModule, NgIf  } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
-  imports: [RouterModule, CommonModule, NgIf],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css'],
+  standalone: true,
+  imports: [CommonModule, RouterModule, NgIf]
 })
 export class NavbarComponent implements OnInit {
-  // Propiedades de la clase
-  usuarioLogueado: any = null; // Nombre del usuario logueado
-
-  constructor(private authService: AuthService,  private router: Router) {}
   
+  usuarioLogueado: any = null;
+  rutaActual: string = ''; 
+
+  constructor(public authService: AuthService, private router: Router) {}
+
   ngOnInit(): void {
     this.authService.usuarioActual.subscribe(usuarioActual => {
       this.usuarioLogueado = usuarioActual;
     });
-  }
-  
-  logout() {
-    this.authService.logOut().then(() => {
-      this.router.navigate(['/login']); // Redirige a la página de inicio de sesión 
-  });}
-  
-  // Redirige al juego seleccionado
-  irAJuego(nombreJuego: string) {
-    // Lógica para redirigir al juego seleccionado
-  }
-  // Redirige a la sección de puntajes del juego
-  verPuntajes(nombreJuego: string) {
-    // Lógica para redirigir a la sección de puntajes del juego
+    // Guarda la ruta actual (para los *ngIf de login/registro)
+    this.router.events.subscribe(() => {
+      this.rutaActual = this.router.url;
+    });
   }
 
+  get isLogin(): boolean {
+    return this.router.url.startsWith('/login');
+  }
+
+  get isRegistro(): boolean {
+    return this.router.url.startsWith('/registro');
+  }
+
+  // Para el click en el logo o "Arcade Pixel"
+  goHomeOrLogin() {
+    if (this.usuarioLogueado) {
+      this.router.navigate(['/home']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  logout() {
+    this.authService.logOut();
+    this.router.navigate(['/login']);
+  }
 }

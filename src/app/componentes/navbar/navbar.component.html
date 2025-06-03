@@ -1,11 +1,12 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-     
-      <a class="navbar-brand d-flex align-items-center gap-2">
-        <div class="logo-navbar"></div>
-        <span class="brand-text">ARCADE PIXEL 🎮</span>        
+
+    <a class="navbar-brand d-flex align-items-center gap-2" (click)="goHomeOrLogin()" style="cursor:pointer;">
+      <div class="logo-navbar"></div>
+      <span class="brand-text">ARCADE PIXEL 🎮</span>        
     </a>
+    
     <span *ngIf="usuarioLogueado" class="text-white fw-bold ms-3">
       👾 {{ usuarioLogueado.email }}
     </span>
@@ -16,34 +17,46 @@
       </button>
   
       <div class="collapse navbar-collapse" id="menuNav">
+        
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-  
+
           <li class="nav-item">
             <a class="nav-link" routerLink="/home" routerLinkActive="active">Inicio</a>
           </li>
-
-
-          <li class="nav-item" *ngIf="!usuarioLogueado">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active">Ingresar</a>
-          </li>
-
-          <li class="nav-item" *ngIf="!usuarioLogueado">
+        
+          <!-- SOLO en Login: mostrar REGISTRARSE -->
+          <li class="nav-item" *ngIf="isLogin">
             <a class="nav-link" routerLink="/registro" routerLinkActive="active">Registrarse</a>
           </li>
-          
+        
+          <!-- SOLO en Registro: mostrar INGRESAR -->
+          <li class="nav-item" *ngIf="isRegistro">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Ingresar</a>
+          </li>
+        
+          <!-- Si NO está logueado y no está en login ni registro -->
+          <li class="nav-item" *ngIf="!usuarioLogueado && !isLogin && !isRegistro">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Ingresar</a>
+          </li>
+          <li class="nav-item" *ngIf="!usuarioLogueado && !isLogin && !isRegistro">
+            <a class="nav-link" routerLink="/registro" routerLinkActive="active">Registrarse</a>
+          </li>
+        
+          <!-- Si está logueado -->
           <li class="nav-item" *ngIf="usuarioLogueado">
             <a class="nav-link" routerLink="/sobremi" routerLinkActive="active">Sobre mí</a>
           </li>
-
+          <li class="nav-item" *ngIf="usuarioLogueado">
+            <a class="nav-link" routerLink="/encuesta" routerLinkActive="active">Encuesta</a>
+          </li>
           <li class="nav-item" *ngIf="usuarioLogueado">
             <a class="nav-link" routerLink="/chat" routerLinkActive="active">Chat</a>
           </li>
-          
           <li class="nav-item" *ngIf="usuarioLogueado">
             <a class="nav-link" (click)="logout()">Cerrar sesión</a>
           </li>
-          
         </ul>
+        
       </div>
     </div>
 

@@ -1,37 +1,25 @@
 <div class="mayor-menor-container">
   <h1 class="titulo">Juego Mayor o Menor</h1>
+  <div *ngIf="mostrarAvisoLogin" class="aviso-login">
+    <span>🔒 Para guardar tu puntuación debes estar <a routerLink="/login">logueado</a> o <a routerLink="/registro">registrado</a>.</span>
+  </div>
+  
+  <div class="bloque-puntaje">🏆 Puntaje actual: {{ puntaje }}</div>
 
-  <div class="text-puntaje">Puntaje actual: {{ puntaje }}</div>
 
   <div class="zona-juego">
-<!--     
-    <div class="cartas">
-      <div class="carta">
-        <p>Carta actual</p>
-        <img [src]="cartaActual?.image" alt="Carta actual" />
-      </div>
-    </div>
-    <div class="cartas" *ngIf="cartaSiguiente && finalizado">
-      <div class="carta">
-        <p>Carta que te hizo perder</p>
-        <img [src]="cartaSiguiente.image" alt="Carta siguiente" />
-      </div>
-    </div>
-     -->
+
      <div class="cartas" *ngIf="cartaActual">
       <div class="carta">
         <p>Carta actual</p>
         <img [src]="cartaActual.image" alt="Carta actual" />
       </div>
-<!--     
-      <div class="carta" *ngIf="cartaSiguiente && finalizado">
-        <p>Carta que te hizo perder</p>
-        <img [src]="cartaSiguiente.image" alt="Carta siguiente" />
-      </div> -->
+
 
       <div class="carta" *ngIf="cartaSiguiente && finalizado">
-        <p *ngIf="mensaje.includes('Ganaste')">Carta final</p>
-        <p *ngIf="mensaje.includes('Fallaste')">Carta que te hizo perder</p>
+
+        <p class="titulo-carta-final">Carta final</p>
+
         <img [src]="cartaSiguiente.image" alt="Carta final o de fallo" />
       </div>
       
@@ -43,25 +31,33 @@
       <button (click)="suponer('menor')">Menor 🔽</button>
     </div>
 
-    <div class="resultado" *ngIf="mensaje">
+    <!-- <div class="resultado" *ngIf="mensaje">
       <p [ngClass]="{ 'text-success': esCorrecto, 'text-danger': !esCorrecto }">{{ mensaje }}</p>
+    </div> -->
+
+    <div class="resultado" *ngIf="mensaje">
+      <div class="mensaje-recuadro" [ngClass]="{ 'exito': esCorrecto, 'error': !esCorrecto }">
+        <p>{{ mensaje }}</p>
+      </div>
+    </div>
+    
+    <div *ngIf="finalizado" class="resultado">
+      <p class="bloque-final">🎮 Juego terminado</p>
+      <p class="bloque-puntaje">🏁 Tu puntaje: {{ puntaje }}</p>      
+      <button class="boton-reinicio" (click)="inicializarJuego()">🔁 Jugar de nuevo</button>
     </div>
 
-    <div *ngIf="finalizado" class="resultado">
-      <p class="text-white">Juego terminado</p>
-      <p class="text-puntaje">Tu puntaje: {{ puntaje }}</p>
-      <button (click)="inicializarJuego()">Jugar de nuevo</button>
-    </div>
+
   </div>
 
-  <div>
+  <div class="globo-reglas">
     <h4>🎯 Reglas del juego</h4>
     <p>
       ✅ Cada acierto suma 1 punto.
       <br>
-      ❌ Cada fallo termina la partida inmediatamente.
+      ❌ Cada fallo termina la partida.
       <br>
-      💀 Al fallar, se muestra la carta que causó el error.
+      💀 Al fallar, se muestra la carta del error.
       <br>
       🏆 Al llegar a 5 puntos, el jugador gana.
     </p>
